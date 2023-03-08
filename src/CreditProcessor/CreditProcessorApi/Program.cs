@@ -1,3 +1,7 @@
+using CreditProcessor.Infrastructure;
+using CreditProcessor.IoC;
+using Microsoft.EntityFrameworkCore;
+
 namespace CreditProcessorApi
 {
     public class Program
@@ -7,6 +11,12 @@ namespace CreditProcessorApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<CreditProcessorContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection"));
+            });
+
+            RegisterServices(builder.Services);
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -30,6 +40,11 @@ namespace CreditProcessorApi
             app.MapControllers();
 
             app.Run();
+        }
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            DependencyContainer.RegisterServices(services);
         }
     }
 }

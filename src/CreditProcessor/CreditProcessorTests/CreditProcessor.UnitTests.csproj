@@ -27,4 +27,10 @@
     <Folder Include="Infrastructure\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CreditProcessorApi\CreditProcessor.Api.csproj" />
+    <ProjectReference Include="..\CreditProcessorDomain\CreditProcessor.Domain.csproj" />
+    <ProjectReference Include="..\CreditProcessorInfrastructure\CreditProcessor.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
