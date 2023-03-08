@@ -13,7 +13,7 @@ namespace CreditProcessor.IoC
         {
             services.AddMediatR(config =>
             {
-                config.RegisterServicesFromAssembly(Assembly.GetAssembly(typeof(CreditProcessor.Domain.Commands.Handlers.ProcessCreditHandler)));
+                config.RegisterServicesFromAssembly(Assembly.GetAssembly(typeof(Domain.Commands.Handlers.ProcessCreditHandler)));
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();

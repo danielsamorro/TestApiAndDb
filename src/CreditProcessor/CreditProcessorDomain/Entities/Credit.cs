@@ -23,7 +23,7 @@ namespace CreditProcessor.Domain.Entities
         public void CalculateCredit(int installmentsCount, DateTime firstDueDate)
         {
             TaxAmount = TotalAmount * GetTaxPercentage();
-            TotalAmountWithTax = TotalAmount + TotalAmountWithTax;
+            TotalAmountWithTax = TotalAmount + TaxAmount;
 
             Installments.Clear();
 

@@ -16,22 +16,7 @@ namespace CreditProcessor.Infrastructure.Repositories
 
         public void Add(T entity)
         {
-            _context.Add(entity);
-        }
-
-        public void Delete(T entity)
-        {
-            _context.Remove(entity);
-        }
-
-        public Task<List<T>> GetAll()
-        {
-            return _dbSet.ToListAsync();
-        }
-
-        public ValueTask<T?> GetById(Guid id)
-        {
-            return _dbSet.FindAsync(id);
+            _dbSet.Add(entity);
         }
     }
 }
