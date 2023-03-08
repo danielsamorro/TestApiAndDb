@@ -13,7 +13,8 @@ namespace CreditProcessorApi
             // Add services to the container.
             builder.Services.AddDbContext<CreditProcessorContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection"));
+                //options.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection"));
+                options.UseInMemoryDatabase(databaseName: "CreditProcessorContext");
             });
 
             RegisterServices(builder.Services);
